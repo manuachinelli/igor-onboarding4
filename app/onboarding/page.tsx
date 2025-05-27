@@ -1,8 +1,7 @@
-
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import styles from './onboarding.module.css'
+import styles from '../onboarding.module.css'
 
 interface Message {
   sender: 'user' | 'assistant'
@@ -76,7 +75,7 @@ export default function OnboardingPage() {
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={\`\${styles.messageBubble} \${msg.sender === 'user' ? styles.userBubble : styles.assistantBubble}\`}
+            className={`${styles.messageBubble} ${msg.sender === 'user' ? styles.userBubble : styles.assistantBubble}`}
           >
             {msg.text}
           </div>
@@ -101,14 +100,5 @@ export default function OnboardingPage() {
           />
           <button
             onClick={sendMessage}
-            className={\`\${styles.iconButton} \${waiting ? styles.disabled : ''}\`}
+            className={`${styles.iconButton} ${waiting ? styles.disabled : ''}`}
             disabled={waiting}
-          >
-            ➤
-          </button>
-        </div>
-        <div className={styles.status}>Say hi to Igor</div>
-      </div>
-    </div>
-  )
-}
